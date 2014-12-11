@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Elastic CSS Calendar</title>
+	<link rel="stylesheet" type="text/css" href="calendar.css"/>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="underscore.js"></script>
+	<script type="text/javascript" src="jquery.calendar.js"></script>
+</head>
+<body>
+<a class="btn-prev-month" href="#">Prev month</a>
+<a class="btn-next-month" href="#">Next month</a>
+<h2 class="calendar-info"></h2>
+<div id="calendar"></div>
+<script type="text/javascript">
+$(document).ready(function(){
+	var $Calendar = $('#calendar').Calendar();
+		$('.calendar-info').html($Calendar.getDateAsString());
+
+	$('.btn-next-month').bind('click', function(e) {
+		e.preventDefault();
+		$Calendar.showNextMonth();
+		$('.calendar-info').html($Calendar.getDateAsString());
+	});
+
+	$('.btn-prev-month').bind('click', function(e) {
+		e.preventDefault();
+		$Calendar.showPrevMonth();
+		$('.calendar-info').html($Calendar.getDateAsString());
+	});
+});
+</script>
+</body>
+</html>
